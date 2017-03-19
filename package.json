@@ -11,17 +11,11 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
+    "gulp-file": "^0.3.0",
     "gulp-help": "^1.6.1",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-preset-es2015": "^6.24.0",
     "gulp": "^3.9.1"
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   }
 }
