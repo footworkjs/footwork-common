@@ -1,13 +1,12 @@
 const gulp = global.__gulp;
 const file = require('gulp-file');
-const rollup = require('rollup');
+const rollup = require('rollup').rollup;
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 require('colors');
 
 gulp.task('make', 'Run rollup to produce UMD/build assets in dist/', function () {
-  const distFilename = `${global.pkg.name}.js`;
-  const dest = `dist/${distFilename}`;
+  const dest = `${global.pkg.name}.js`;
 
   console.log(`🔨  Compiling index.js -> ${dest.green}`);
 
@@ -37,7 +36,7 @@ gulp.task('make', 'Run rollup to produce UMD/build assets in dist/', function ()
     });
   })
   .then(gen => {
-    return file(distFilename, gen.code, { src: true })
-      .pipe(gulp.dest(dest));
+    return file(dest, gen.code, { src: true })
+      .pipe(gulp.dest('dist/'));
   });
 })
