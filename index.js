@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var gulpHelp = require('gulp-help');
 
 Object.defineProperty(global, 'pkg', {
-  get: throttle(() => require(`${process.cwd()}/package.json`), 125)
+  get: _.throttle(() => require(`${process.cwd()}/package.json`), 125)
 });
 
 module.exports = function setupGulpTasks (gulp) {
