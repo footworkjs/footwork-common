@@ -1,9 +1,9 @@
 const gulp = global.__gulp;
-import file from 'gulp-file';
-import { rollup } from 'rollup';
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import 'colors';
+const file = require('gulp-file');
+const rollup = require('rollup');
+const babel = require('rollup-plugin-babel');
+const resolve = require('rollup-plugin-node-resolve');
+require('colors');
 
 gulp.task('make', 'Run rollup to produce UMD/build assets in dist/', function () {
   const distFilename = `${global.pkg.name}.js`;

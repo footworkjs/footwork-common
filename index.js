@@ -1,13 +1,13 @@
-import * as fs from 'fs';
-import { throttle } from 'lodash';
-import gulp from 'gulp';
-import gulpHelp from 'gulp-help';
+var fs = require('fs');
+var _ = require('lodash');
+var gulp = require('gulp');
+var gulpHelp = require('gulp-help');
 
 Object.defineProperty(global, 'pkg', {
   get: throttle(() => require(`${process.cwd()}/package.json`), 125)
 });
 
-export function setupGulpTasks (gulp) {
+module.exports = function setupGulpTasks (gulp) {
   gulp = global.__gulp = gulpHelp(gulp);
   let tasks_path = __dirname + "/tasks";
 
@@ -16,4 +16,4 @@ export function setupGulpTasks (gulp) {
     .forEach((file) => require(`${tasks_path}/${file}`));
 
   gulp.task('default', false, ['help']);
-}
+};
