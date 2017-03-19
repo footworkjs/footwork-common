@@ -3,16 +3,12 @@ import { throttle } from 'lodash';
 import gulp from 'gulp';
 import gulpHelp from 'gulp-help';
 
-const CONFIG_READ_THROTTLE = 125;
-
 Object.defineProperty(global, 'pkg', {
-  get: throttle(
-      () => require(`${process.cwd()}/package.json`),
-      CONFIG_READ_THROTTLE)
+  get: throttle(() => require(`${process.cwd()}/package.json`), 125)
 });
 
-export default function setupGulpTasks (gulp) {
-  const gulp = global.__gulp = gulpHelp(gulp);
+export function setupGulpTasks (gulp) {
+  gulp = global.__gulp = gulpHelp(gulp);
   let tasks_path = __dirname + "/tasks";
 
   fs.readdirSync(tasks_path)
