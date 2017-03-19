@@ -9,7 +9,7 @@ Object.defineProperty(global, 'pkg', {
 
 module.exports = function setupGulpTasks (gulp) {
   gulp = global.__gulp = gulpHelp(gulp);
-  let tasks_path = __dirname + "/tasks";
+  const tasks_path = __dirname + "/tasks";
 
   fs.readdirSync(tasks_path)
     .filter((file) => file.endsWith('.js'))
